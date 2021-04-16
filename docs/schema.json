@@ -79,7 +79,7 @@
                 "type": {
                     "description": "The type of sharing model in use",
                     "type": "string",
-                    "oneOf": ["foss", "free", "freemium", "paid", "internal"]
+                    "oneOf": ["foss", "free", "freeAds", "freemium", "paid", "internal"]
                 },
                 "licence": {
                     "description": "The SPDX licence identifier of the licence which the app is distributed under",
