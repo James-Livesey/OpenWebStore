@@ -1,0 +1,177 @@
+:root {
+    --background: white;
+    --foreground: #222222;
+    --light: #e0e0e0;
+    --blue: #418cee;
+    --blueHover: #7cb0f4;
+    --blueLight: #b4d2f8;
+    --blueLightText: #0f52a9;
+    --blueLightHover: #d9e8fc;
+    --green: #22d16e;
+    --greenHover: #50e28f;
+    --greenLight: #b9f4d2;
+    --greenLightText: #199f51;
+    --greenLightHover: #dcf9ea;
+    --yellow: #ede732;
+    --yellowHover: #f2ed69;
+    --yellowLight: #f7f4a1;
+    --yellowLightText: #837f0b;
+    --yellowLightHover: #fcfbd9;
+    --red: #ed5855;
+    --redHover: #f39290;
+    --redLight: #f7b7b6;
+    --redLightText: #a51512;
+    --redLightHover: #fbdada;
+    --purple: #7e41e1;
+    --purpleHover: #a072e9;
+    --purpleLight: #cfb8f4;
+    --purpleLightText: #551cb0;
+    --purpleLightHover: #e8dcf9;
+}
+
+* {
+    font-family: system-ui, sans-serif;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 3.5em;
+    padding: 0.5em;
+}
+
+header input {
+    width: 50%;
+    height: 2.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    background-color: var(--light);
+    font-size: 1em;
+    border: none;
+    border-radius: 0.5em;
+    outline: none;
+}
+
+main {
+    position: absolute;
+    top: 3.5em;
+    left: 250px;
+    width: calc(100% - 250px);
+    padding: 1em;
+    padding-left: 5%;
+    padding-right: 10%;
+}
+
+nav {
+    position: fixed;
+    top: 3.5em;
+    left: 0;
+    width: 250px;
+    padding: 0.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+nav li {
+    display: block;
+    list-style-type: none;
+}
+
+nav li a {
+    display: block;
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    background-color: inherit;
+    color: inherit;
+    border-radius: 0.5em;
+    text-decoration: none;
+    transition: 1s background-color;
+}
+
+nav li a.selected {
+    font-weight: bold;
+}
+
+nav li a[data-page="explore"]:hover {
+    background-color: var(--blueLightHover);
+}
+
+nav li a[data-page="explore"].selected {
+    background-color: var(--blueLight);
+    color: var(--blueLightText);
+}
+
+nav li a[data-page="new"]:hover {
+    background-color: var(--greenLightHover);
+}
+
+nav li a[data-page="new"].selected {
+    background-color: var(--greenLight);
+    color: var(--greenLightText);
+}
+
+nav li a[data-page="categories"]:hover {
+    background-color: var(--yellowLightHover);
+}
+
+nav li a[data-page="categories"].selected {
+    background-color: var(--yellowLight);
+    color: var(--yellowLightText);
+}
+
+nav li a[data-page="add"]:hover {
+    background-color: var(--redLightHover);
+}
+
+nav li a[data-page="add"].selected {
+    background-color: var(--redLight);
+    color: var(--redLightText);
+}
+
+nav li a[data-page="installed"]:hover {
+    background-color: var(--purpleLightHover);
+}
+
+nav li a[data-page="installed"].selected {
+    background-color: var(--purpleLight);
+    color: var(--purpleLightText);
+}
+
+@media (max-width: 800px) {
+    nav {
+        width: 200px;
+    }
+
+    main {
+        left: 200px;
+        width: calc(100% - 200px);
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        background-color: var(--light);
+    }
+    
+    header input {
+        width: 100%;
+    }
+
+    nav {
+        top: unset;
+        bottom: 0;
+        width: 100%;
+    }
+
+    main {
+        left: 0;
+    }
+}

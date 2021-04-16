@@ -1,0 +1,14 @@
+{
+    "name": "English (United Kingdom)",
+    "nameShort": "English",
+    "textDirection": "ltr",
+    "strings": {
+        "openWebStore": "Open Web Store",
+        "explore": "Explore",
+        "new": "New apps",
+        "categories": "Categories",
+        "add": "Add app",
+        "installed": "Installed",
+        "searchPlaceholder": "Search for an app..."
+    }
+}

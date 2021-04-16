@@ -1,0 +1,74 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$id": "https://openwebstore.org/docs/schema.json",
+    "title": "App",
+    "description": "An installable progressive web app entry to be shown on the store",
+    "type": "object",
+    "properties": {
+        "name": {
+            "description": "The name of the app",
+            "type": "string"
+        },
+        "description": {
+            "description": "Information about what the app does",
+            "type": "string"
+        },
+        "author": {
+            "description": "Details about the app's author",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "The name of the author (either name of developer or entity)",
+                    "type": "string"
+                },
+                "about": {
+                    "description": "A brief introduction about the app's author",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "The email address to contact for app support",
+                    "type": "string"
+                },
+                "socialMedia": {
+                    "description": "The social media URLs of the author",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            },
+            "required": ["name"]
+        },
+        "installationUrl": {
+            "description": "The URL to be visited when installing the app",
+            "type": "string"
+        },
+        "websiteUrl": {
+            "description": "The URL of the website to see more information about the app",
+            "type": "string"
+        },
+        "sourceUrl": {
+            "description": "The URL of the app's source code repository",
+            "type": "string"
+        },
+        "sharingModel": {
+            "description": "App's licencing information and payment model category",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "The type of sharing model in use",
+                    "type": "string",
+                    "oneOf": ["foss", "free", "freemium", "paid", "internal"]
+                },
+                "licence": {
+                    "description": "The SPDX licence identifier of the licence which the app is distributed under",
+                    "type": "string"
+                }
+            },
+            "required": ["type"]
+        }
+    },
+    "required": ["name", "description", "author", "installationUrl", "sharingModel"]
+}

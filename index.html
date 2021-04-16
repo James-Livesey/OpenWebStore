@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Open Web Store</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        <link rel="stylesheet" href="/style.css">
+        <script src="https://cdn.subnodal.com/lib/subelements.min.js"></script>
+        <script src="/script.js"></script>
+        <script src="/pages.js"></script>
+    </head>
+    <body hidden>
+        <header>
+            <input placeholder="{{ _('searchPlaceholder') }}" onkeyup="switchToSearch();" id="search">
+        </header>
+        <main>
+            <s-if condition="{{ currentPage == 'explore' }}">
+                <p>Explore</p>
+            </s-if>
+            <s-if condition="{{ currentPage == 'new' }}">
+                <p>New apps</p>
+            </s-if>
+            <s-if condition="{{ currentPage == 'categories' }}">
+                <p>Categories</p>
+            </s-if>
+            <s-if condition="{{ currentPage == 'add' }}">
+                <p>Add app</p>
+            </s-if>
+            <s-if condition="{{ currentPage == 'installed' }}">
+                <p>Installed</p>
+            </s-if>
+            <s-if condition="{{ currentPage == 'search' }}">
+                <p>Search</p>
+                <p>{{ searchPhrase || "&nbsp;" }}</p>
+            </s-if>
+        </main>
+        <nav>
+            <s-set var="pages" value="['explore', 'new', 'categories', 'add', 'installed']"></s-set>
+            <s-for var="i" start="0" stop="pages.length">
+                <li><a href="javascript:switchToPage('{{ pages[i] }}');" data-page="{{ pages[i] }}" class="{{ currentPage == pages[i] ? 'selected' : '' }}" translate>{{ pages[i] }}</a></li>
+            </s-for>
+        </nav>
+    </body>
+</html>
