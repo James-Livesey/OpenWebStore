@@ -14,24 +14,27 @@
             <input placeholder="{{ _('searchPlaceholder') }}" onkeyup="switchToSearch();" id="search">
         </header>
         <main>
-            <s-if condition="{{ currentPage == 'explore' }}">
-                <p>Explore</p>
-            </s-if>
-            <s-if condition="{{ currentPage == 'new' }}">
-                <p>New apps</p>
+            <s-if condition="{{ ['explore', 'new', 'installed', 'search'].includes(currentPage) }}">
+                <s-for var="i" start="0" stop="appsList.length">
+                    <s-set var="app" value="appsList[i]"></s-set>
+                    <a class="app">
+                        <img src="{{ app.iconUrl }}" aria-hidden="true">
+                        <h2 class="name">{{ app.name }}</h2>
+                        <p class="author">{{ app.author.name }}</p>
+                        <p class="description">{{ app.description }}</p>
+                        <s-if condition="{{ ['explore', 'new'].includes(currentPage) && Array.isArray(app.screenshotUrls) }}">
+                            <s-for var="j" start="0" stop="app.screenshotUrls.length">
+                                <img src="{{ app.screenshotUrls[j] }}" aria-hidden="true">
+                            </s-for>
+                        </s-if>
+                    </a>
+                </s-for>
             </s-if>
             <s-if condition="{{ currentPage == 'categories' }}">
                 <p>Categories</p>
             </s-if>
             <s-if condition="{{ currentPage == 'add' }}">
                 <p>Add app</p>
-            </s-if>
-            <s-if condition="{{ currentPage == 'installed' }}">
-                <p>Installed</p>
-            </s-if>
-            <s-if condition="{{ currentPage == 'search' }}">
-                <p>Search</p>
-                <p>{{ searchPhrase || "&nbsp;" }}</p>
             </s-if>
         </main>
         <nav>
