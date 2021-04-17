@@ -87,7 +87,28 @@
                 }
             },
             "required": ["type"]
+        },
+        "category": {
+            "description": "The general type of app",
+            "type": "string",
+            "oneOf": [
+                "utilities",
+                "productivity",
+                "games",
+                "graphics",
+                "music",
+                "news",
+                "development",
+                "education",
+                "entertainment",
+                "lifestyle",
+                "health",
+                "kids",
+                "travel",
+                "shopping",
+                "social"
+            ]
         }
     },
-    "required": ["name", "description", "author", "installationUrl", "iconUrl", "sharingModel"]
+    "required": ["name", "description", "author", "installationUrl", "iconUrl", "sharingModel", "category"]
 }

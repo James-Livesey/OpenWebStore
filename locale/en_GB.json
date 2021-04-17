@@ -9,6 +9,10 @@
         "categories": "Categories",
         "add": "Add app",
         "installed": "Installed",
-        "searchPlaceholder": "Search for an app..."
+        "searchPlaceholder": "Search for an app...",
+        "foundResultsFor": {
+            "{count} == 1": "Found 1 result for",
+            "{count} != 1": "Found {count} results for"
+        }
     }
 }

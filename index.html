@@ -4,6 +4,7 @@
         <title>Open Web Store</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        <link rel="icon" href="/media/logo.svg">
         <link rel="stylesheet" href="/style.css">
         <script src="https://cdn.subnodal.com/lib/subelements.min.js"></script>
         <script src="/script.js"></script>
@@ -15,26 +16,42 @@
         </header>
         <main>
             <s-if condition="{{ ['explore', 'new', 'installed', 'search'].includes(currentPage) }}">
+                <s-if condition="{{ currentPage == 'search' }}">
+                    <s-if condition="{{ appsList.length > 0 }}">
+                        <p>{{ _("foundResultsFor", {count: appsList.length}) }} <strong>{{ searchPhrase.trim() || "&nbsp;" }}</strong></p>
+                    </s-if>
+                    <s-else>
+                        <p>No results found</p>
+                        <p>You probably shouldn't see this because it's technically impossible to reach this part yet</p>
+                        <!-- TODO: Add proper no results found screen -->
+                    </s-else>
+                </s-if>
                 <s-for var="i" start="0" stop="appsList.length">
                     <s-set var="app" value="appsList[i]"></s-set>
-                    <a class="app">
-                        <img src="{{ app.iconUrl }}" aria-hidden="true">
+                    <a href="{{ app.installationUrl }}" class="app">
+                        <img src="{{ app.iconUrl }}" aria-hidden="true" class="icon">
                         <h2 class="name">{{ app.name }}</h2>
                         <p class="author">{{ app.author.name }}</p>
                         <p class="description">{{ app.description }}</p>
-                        <s-if condition="{{ ['explore', 'new'].includes(currentPage) && Array.isArray(app.screenshotUrls) }}">
-                            <s-for var="j" start="0" stop="app.screenshotUrls.length">
-                                <img src="{{ app.screenshotUrls[j] }}" aria-hidden="true">
-                            </s-for>
+                        <s-if condition="{{ ['explore', 'new'].includes(currentPage) && Array.isArray(app.screenshotUrls) && app.screenshotUrls.length > 0 }}">
+                            <div class="screenshots">
+                                <s-for var="j" start="0" stop="app.screenshotUrls.length">
+                                    <img src="{{ app.screenshotUrls[j] }}" aria-hidden="true">
+                                </s-for>
+                            </div>
                         </s-if>
                     </a>
                 </s-for>
             </s-if>
             <s-if condition="{{ currentPage == 'categories' }}">
-                <p>Categories</p>
+                <h1>In development!</h1>
+                <p>Come back later when we've built the categories tab.</p>
+                <!-- TODO: Develop categories tab -->
             </s-if>
             <s-if condition="{{ currentPage == 'add' }}">
-                <p>Add app</p>
+                <h1>In development!</h1>
+                <p>Come back later to see how to add apps to this store.</p>
+                <!-- TODO: Develop app adding -->
             </s-if>
         </main>
         <nav>
