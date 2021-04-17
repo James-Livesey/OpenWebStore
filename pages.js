@@ -4,7 +4,7 @@ var searchPhrase = "";
 var appsList = [
     {
         name: "Test App",
-        iconUrl: "/media/logo.svg",
+        iconUrl: "media/logo.svg",
         author: {
             name: "Test User"
         },
