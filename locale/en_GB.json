@@ -9,6 +9,7 @@
         "categories": "Categories",
         "add": "Add app",
         "installed": "Installed",
+        "install": "Install",
         "searchPlaceholder": "Search for an app...",
         "foundResultsFor": {
             "{count} == 1": "Found 1 result for",

@@ -293,6 +293,19 @@ nav li a[data-page="installed"].selected {
     color: var(--purpleLightText);
 }
 
+nav li a[data-page="installed"].selected span.icon svg path {
+    fill: var(--purpleLightText);
+}
+
+nav li a span.icon {
+    display: none;
+    pointer-events: none;
+}
+
+nav li a.selected span.icon {
+    opacity: 0.6;
+}
+
 button {
     padding: 0.5em;
     padding-left: 1em;
@@ -353,8 +366,8 @@ input {
         top: unset;
         bottom: 0;
         width: 100%;
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
+        padding-top: 0.25em;
+        padding-bottom: 0;
         background-color: var(--background);
         text-align: center;
         box-shadow: 0 -0.5em 2em 0 rgba(0, 0, 0, 0.1);
@@ -369,9 +382,19 @@ input {
     }
 
     nav li a {
+        max-height: 4em;
         margin-bottom: 0;
+        padding: 0.25em;
         padding-left: 0;
         padding-right: 0;
+    }
+
+    nav li a span.icon {
+        display: block;
+    }
+
+    nav li a span.icon img {
+        width: 24px;
     }
 
     main {

@@ -53,7 +53,7 @@
                     <h1>{{ currentApp.name }}</h1>
                     <p>{{ currentApp.author.name }}</p>
                     <p>{{ currentApp.synopsis }}</p>
-                    <button class="install">Install</button>
+                    <button class="install" translate>install</button>
                 </div>
                 <s-if condition="{{ Array.isArray(currentApp.screenshotUrls) && currentApp.screenshotUrls.length > 0 }}">
                     <div class="screenshots">
@@ -78,7 +78,10 @@
         <nav>
             <s-set var="pages" value="['explore', 'new', 'categories', 'add', 'installed']"></s-set>
             <s-for var="i" start="0" stop="pages.length">
-                <li><a href="javascript:switchToPage('{{ pages[i] }}');" data-page="{{ pages[i] }}" class="{{ currentPage == pages[i] ? 'selected' : '' }}" translate>{{ pages[i] }}</a></li>
+                <li><a href="javascript:switchToPage('{{ pages[i] }}');" data-page="{{ pages[i] }}" class="{{ currentPage == pages[i] ? 'selected' : '' }}">
+                    <span class="icon"><img src="/media/icons/{{ pages[i] }}.svg"></object></span>
+                    <span translate>{{ pages[i] }}</span>
+                </a></li>
             </s-for>
         </nav>
     </body>
