@@ -9,6 +9,10 @@
             "description": "The name of the app",
             "type": "string"
         },
+        "synopsis": {
+            "description": "A short summary of what the app is for",
+            "type": "string"
+        },
         "description": {
             "description": "Information about what the app does",
             "type": "string"
@@ -54,6 +58,10 @@
         },
         "iconUrl": {
             "description": "The URL of the app's icon",
+            "type": "string"
+        },
+        "featureUrl": {
+            "description": "The URL of the app's feature banner image",
             "type": "string"
         },
         "screenshotUrls": {
@@ -110,5 +118,5 @@
             ]
         }
     },
-    "required": ["name", "description", "author", "installationUrl", "iconUrl", "sharingModel", "category"]
+    "required": ["name", "synopsis", "author", "installationUrl", "iconUrl", "sharingModel", "category"]
 }

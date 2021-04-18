@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="style.css">
         <script src="https://cdn.subnodal.com/lib/subelements.min.js"></script>
         <script src="script.js"></script>
+        <script src="description.js"></script>
         <script src="pages.js"></script>
     </head>
     <body hidden>
@@ -28,11 +29,11 @@
                 </s-if>
                 <s-for var="i" start="0" stop="appsList.length">
                     <s-set var="app" value="appsList[i]"></s-set>
-                    <a href="{{ app.installationUrl }}" class="app">
+                    <a href="javascript:switchToApp({{ i }});" class="app">
                         <img src="{{ app.iconUrl }}" aria-hidden="true" class="icon">
                         <h2 class="name">{{ app.name }}</h2>
                         <p class="author">{{ app.author.name }}</p>
-                        <p class="description">{{ app.description }}</p>
+                        <p class="synopsis">{{ app.synopsis }}</p>
                         <s-if condition="{{ ['explore', 'new'].includes(currentPage) && Array.isArray(app.screenshotUrls) && app.screenshotUrls.length > 0 }}">
                             <div class="screenshots">
                                 <s-for var="j" start="0" stop="app.screenshotUrls.length">
@@ -42,6 +43,26 @@
                         </s-if>
                     </a>
                 </s-for>
+            </s-if>
+            <s-if condition="{{ currentPage == 'app' }}">
+                <s-if condition="{{ currentApp.featureUrl != undefined }}">
+                    <img src="{{ currentApp.featureUrl }}" aria-hidden="true" class="feature">
+                </s-if>
+                <div class="appDetails">
+                    <img src="{{ currentApp.iconUrl }}" aria-hidden="true" class="icon">
+                    <h1>{{ currentApp.name }}</h1>
+                    <p>{{ currentApp.author.name }}</p>
+                    <p>{{ currentApp.synopsis }}</p>
+                    <button class="install">Install</button>
+                </div>
+                <s-if condition="{{ Array.isArray(currentApp.screenshotUrls) && currentApp.screenshotUrls.length > 0 }}">
+                    <div class="screenshots">
+                        <s-for var="j" start="0" stop="currentApp.screenshotUrls.length">
+                            <img src="{{ currentApp.screenshotUrls[j] }}" aria-hidden="true">
+                        </s-for>
+                    </div>
+                </s-if>
+                <p id="currentAppDescription"></p>
             </s-if>
             <s-if condition="{{ currentPage == 'categories' }}">
                 <h1>In development!</h1>
