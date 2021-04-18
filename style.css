@@ -152,7 +152,10 @@ nav li a {
     background-color: inherit;
     color: inherit;
     border-radius: 0.5em;
+    overflow: hidden;
+    white-space: nowrap;
     text-decoration: none;
+    text-overflow: ellipsis;
     transition: 1s background-color;
 }
 
@@ -235,22 +238,22 @@ nav li a[data-page="installed"].selected {
         padding-top: 0.5em;
         padding-bottom: 0.5em;
         background-color: var(--background);
+        text-align: center;
         box-shadow: 0 -0.5em 2em 0 rgba(0, 0, 0, 0.1);
     }
 
-    nav s-for {
-        display: flex;
-    }
-
     nav li {
-        flex-grow: 0;
-        flex-basis: 20%;
+        display: inline-block;
+        width: calc(20% - 0.3em);
+        max-width: 75px;
         font-size: 0.8em;
         text-align: center;
     }
 
     nav li a {
         margin-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     main {
