@@ -3,7 +3,7 @@ var core = require("com.subnodal.subelements.core");
 var requests = require("com.subnodal.subelements.requests");
 var l10n = require("com.subnodal.subelements.l10n");
 
-var _;
+var _ = l10n.translate;
 
 Promise.all([
     requests.getJson("locale/en_GB.json")
@@ -15,6 +15,4 @@ Promise.all([
         localeCode: core.parameter("lang") || undefined,
         fallbackLocaleCode: "en_GB"
     });
-
-    _ = l10n.translate;
 });
