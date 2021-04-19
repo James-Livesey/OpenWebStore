@@ -37,6 +37,7 @@
 
 * {
     font-family: system-ui, sans-serif;
+    word-break: break-word;
     box-sizing: border-box;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
