@@ -79,7 +79,7 @@
             <s-set var="pages" value="['explore', 'new', 'categories', 'add', 'installed']"></s-set>
             <s-for var="i" start="0" stop="pages.length">
                 <li><a href="javascript:switchToPage('{{ pages[i] }}');" data-page="{{ pages[i] }}" class="{{ currentPage == pages[i] ? 'selected' : '' }}">
-                    <span class="icon"><img src="/media/icons/{{ pages[i] }}.svg"></object></span>
+                    <span class="icon"><img src="media/icons/{{ pages[i] }}.svg"></object></span>
                     <span translate>{{ pages[i] }}</span>
                 </a></li>
             </s-for>
