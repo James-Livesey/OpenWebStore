@@ -35,7 +35,7 @@
         "paid": "Paid",
         "internal": "Internal use only",
         "website": "Website",
-        "sourceCode": "Source code",
+        "viewSource": "View source code",
         "licence": "Licence",
         "searchPlaceholder": "Search for an app...",
         "foundResultsFor": {
