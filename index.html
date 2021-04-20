@@ -51,7 +51,7 @@
                 <div class="appDetails">
                     <img src="{{ currentApp.iconUrl }}" aria-hidden="true" class="icon">
                     <h1>{{ currentApp.name }}</h1>
-                    <p>{{ currentApp.author.name }}</p>
+                    <p>{{ currentApp.author?.name }}</p>
                     <p>{{ currentApp.synopsis }}</p>
                     <button class="install" translate>install</button>
                 </div>
@@ -63,6 +63,46 @@
                     </div>
                 </s-if>
                 <p id="currentAppDescription"></p>
+                <s-if condition="{{ typeof(currentApp.author?.about) == 'string' && currentApp.author?.about.trim() != '' }}">
+                    <h2>{{ _("aboutAuthor", {author: currentApp.author?.name}) }}</h2>
+                    <p>{{ currentApp.author?.about }}</p>
+                </s-if>
+                <div class="appExtras">
+                    <div>
+                        <img src="media/icons/categories.svg" aria-hidden="true">
+                        <strong translate>category</strong>
+                        <span>{{ _(currentApp.category) }}</span>
+                    </div>
+                    <s-if condition="{{ websiteIsValid(currentApp.websiteUrl) }}">
+                        <a href="{{ currentApp.websiteUrl }}">
+                            <div>
+                                <img src="media/icons/website.svg" aria-hidden="true">
+                                <strong translate>website</strong>
+                                <span>{{ new URL(currentApp.websiteUrl).hostname }}</span>
+                            </div>
+                        </a>
+                    </s-if>
+                    <div>
+                        <img src="media/icons/sharingModel.svg" aria-hidden="true">
+                        <strong translate>sharingModel</strong>
+                        <span>{{ _(currentApp.sharingModel?.type) }}</span>
+                    </div>
+                    <s-if condition="{{ websiteIsValid(currentApp.sourceUrl) }}">
+                        <a href="{{ currentApp.sourceUrl }}">
+                            <div>
+                                <img src="media/icons/source.svg" aria-hidden="true">
+                                <strong translate>sourceCode</strong>
+                            </div>
+                        </a>
+                    </s-if>
+                    <s-if condition="{{ typeof(currentApp.sharingModel?.licence) == 'string' }}">
+                        <div>
+                            <img src="media/icons/licence.svg" aria-hidden="true">
+                            <strong translate>licence</strong>
+                            <span>{{ currentApp.sharingModel?.licence }}</span>
+                        </div>
+                    </s-if>
+                </div>
             </s-if>
             <s-if condition="{{ currentPage == 'categories' }}">
                 <h1>In development!</h1>
@@ -79,7 +119,7 @@
             <s-set var="pages" value="['explore', 'new', 'categories', 'add', 'installed']"></s-set>
             <s-for var="i" start="0" stop="pages.length">
                 <li><a href="javascript:switchToPage('{{ pages[i] }}');" data-page="{{ pages[i] }}" class="{{ currentPage == pages[i] ? 'selected' : '' }}">
-                    <span class="icon"><img src="media/icons/{{ pages[i] }}.svg"></object></span>
+                    <span class="icon"><img src="media/icons/{{ pages[i] }}.svg"></span>
                     <span translate>{{ pages[i] }}</span>
                 </a></li>
             </s-for>
