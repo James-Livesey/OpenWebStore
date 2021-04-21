@@ -151,8 +151,16 @@ main .screenshots img {
     border-radius: 0.5em;
 }
 
+[dir="rtl"] main .screenshots img:first-child {
+    margin-right: 0;
+}
+
 main .screenshots img:last-child {
     margin-right: 0;
+}
+
+[dir="rtl"] main .screenshots img:last-child {
+    margin-right: 0.5em;
 }
 
 main img.feature {
@@ -447,6 +455,21 @@ input {
     [dir="rtl"] main {
         left: unset;
         right: 0;
+        padding-left: 5%;
+    }
+
+    main .screenshots {
+        margin-left: calc(-5% - 2px);
+        margin-right: calc(-5% - 2px);
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    main a.app .screenshots {
+        margin-left: calc(-5% - 0.5em - 3px);
+        margin-right: calc(-5% - 0.5em - 3px);
+        padding-left: calc(5% + 0.5em - 3px);
+        padding-right: calc(5% + 0.5em - 3px);
     }
 
     main img.feature {

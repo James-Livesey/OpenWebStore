@@ -74,7 +74,7 @@
                         <span>{{ _(currentApp.category) }}</span>
                     </div>
                     <s-if condition="{{ websiteIsValid(currentApp.websiteUrl) }}">
-                        <a href="{{ currentApp.websiteUrl }}">
+                        <a href="{{ currentApp.websiteUrl }}" target="_blank">
                             <div>
                                 <img src="media/icons/website.svg" aria-hidden="true">
                                 <strong translate>website</strong>
@@ -88,7 +88,7 @@
                         <span>{{ _(currentApp.sharingModel?.type) }}</span>
                     </div>
                     <s-if condition="{{ websiteIsValid(currentApp.sourceUrl) }}">
-                        <a href="{{ currentApp.sourceUrl }}">
+                        <a href="{{ currentApp.sourceUrl }}" target="_blank">
                             <div>
                                 <img src="media/icons/source.svg" aria-hidden="true">
                                 <strong translate>viewSource</strong>
